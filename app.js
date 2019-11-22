@@ -1,16 +1,10 @@
-const Vue = require('vue')
 const server = require('express')()
 const renderer = require('vue-server-renderer').createRenderer({
   template: require('fs').readFileSync('./index.template.html', 'utf-8')
 })
+const createApp = require('./src/app.js')
 
 server.get('*', (req, res) => {
-  const app = new Vue({
-    data: {
-      url: req.url
-    },
-    template: `<div>the url is： {{ url }}</div>`
-  })
 
   const context = {
     title: 'hello',
@@ -18,6 +12,7 @@ server.get('*', (req, res) => {
     <meta charset="utf-8">
     `
   }
+  let app = createApp({url: req.url})
 
   renderer.renderToString(app, context, (err, html) => {
     if (err) {
