@@ -1,7 +1,7 @@
 const express = require('express')
 const { createBundleRenderer } = require('vue-server-renderer')
 
-let template = require('fs').readFileSync('./index.template.html', 'utf-8')
+let template = require('fs').readFileSync('./index.html', 'utf-8')
 const serverBundle = require('./dist/vue-ssr-server-bundle.json')
 const clientManifest = require('./dist/vue-ssr-client-manifest.json')
 
@@ -16,7 +16,7 @@ const server = express()
 // 让dist中的js静态文件可访问
 server.use(express.static('./dist'))
 
-server.get('/index', (req, res) => {
+server.get('*', (req, res) => {
   // 这里无需传入一个应用程序，因为在执行 bundle 时已经自动创建过。
   // 现在我们的服务器与应用程序已经解耦！
   renderer.renderToString({}, (err, html) => {
@@ -30,3 +30,5 @@ server.get('/index', (req, res) => {
 })
 
 server.listen(8080, () => console.log('Example app listening on port 8080!'))
+
+

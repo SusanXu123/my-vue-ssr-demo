@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <!-- <div>访问的url是: </div> -->
-    <!-- <router-link to="/bar">Goto Bar</router-link> 
+    <div>访问的url是: </div>
+    <router-link to="/bar">Goto Bar</router-link> 
     <router-link to="/foo">Goto Foo</router-link> 
-    <router-view></router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 
