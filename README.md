@@ -7,12 +7,12 @@
 # install dependencies
 npm install # or yarn
 
-# build for client
-npm run build:client
+# serve in dev mode, you can visit in localhost:8080/index.html#/foo
+npm run dev
 
-# build for server
-npm run build:server
+# build for production
+npm run build
 
-# serve in production mode
+# serve in production mode, you can visit in localhost:8080/foo
 npm start
 ```

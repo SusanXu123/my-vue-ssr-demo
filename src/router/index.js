@@ -3,9 +3,9 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const createRouter = function  () {
+const createRouter = function  (mode = 'histpry') {
   return new Router({
-    mode: 'history',
+    mode,
     routes: [
       { path: '/foo', component: () => import('../views/Foo.vue') },
       { path: '/bar', component: () => import('../views/Bar.vue') }
