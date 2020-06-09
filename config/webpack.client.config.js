@@ -1,6 +1,7 @@
 const path = require('path');
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const baseConfig = require('./webpack.base.config.js')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
@@ -27,6 +28,13 @@ module.exports = merge(baseConfig, {
   plugins: [
     // 此插件在输出目录中
     // 生成 `vue-ssr-client-manifest.json`。
-    new VueSSRClientPlugin()
+    new VueSSRClientPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: path.resolve(__dirname, '../dist'),
+        ignore: ['.*']
+      }
+    ])
   ]
 })
