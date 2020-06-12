@@ -1,6 +1,10 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
+assetsPath = function (_path) {
+  const assetsSubDirectory = 'static'
+  return path.posix.join(assetsSubDirectory, _path)
+}
 module.exports = {
   mode: 'development',
 
@@ -10,7 +14,9 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].bundle.js'
+    publicPath: '/',
+    filename: assetsPath('js/[name].bundle.js'),
+    chunkFilename: assetsPath('js/[id].bundle.js')
   },
 
   module: {

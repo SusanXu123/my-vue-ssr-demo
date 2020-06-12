@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div>访问的url是: </div>
-    <router-link to="/bar">Goto Bar</router-link> 
-    <router-link to="/foo">Goto Foo</router-link> 
+    <router-link to="/users">Goto Users</router-link> 
+    <router-link to="/goods">Goto Goods</router-link> 
+    <div>访问的页面是: </div>
     <router-view></router-view>
   </div>
 </template>
